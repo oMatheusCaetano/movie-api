@@ -2,7 +2,5 @@
 
 /** @var \Laravel\Lumen\Routing\Router $router */
 
-$router->get('/', function () use ($router) {
-    return $router->app->version();
-});
 $router->get('/movies/popular', 'MovieController@popular');
+$router->get('/tv/popular', 'TvShowController@popular');
