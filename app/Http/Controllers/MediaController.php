@@ -17,4 +17,11 @@ class MediaController extends Controller
             ->get($this->apiUrl("{$this->mediaType}/popular"))
             ->json()['results'];
     }
+
+    public function trending($time_window)
+    {
+        return Http::withToken($this->apiKey())
+            ->get($this->apiUrl("/trending/{$this->mediaType}/{$time_window}"))
+            ->json()['results'];
+    }
 }
