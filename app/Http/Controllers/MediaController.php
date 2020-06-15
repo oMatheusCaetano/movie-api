@@ -18,6 +18,13 @@ class MediaController extends Controller
             ->json()['results'];
     }
 
+    public function upcoming()
+    {
+        return Http::withToken($this->apiKey())
+            ->get($this->apiUrl("{$this->mediaType}/upcoming"))
+            ->json()['results'];
+    }
+
     public function trending($time_window)
     {
         return Http::withToken($this->apiKey())
