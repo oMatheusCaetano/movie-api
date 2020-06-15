@@ -25,6 +25,14 @@ class MediaController extends Controller
             ->json()['results'];
     }
 
+    public function videos($movie_id)
+    {
+        $a =  Http::withToken($this->apiKey())
+            ->get($this->apiUrl("/movie/${movie_id}/videos"))
+            ->json();
+            dd($a);
+    }
+
     public function trending($time_window)
     {
         return Http::withToken($this->apiKey())
