@@ -3,7 +3,7 @@
 /** @var \Laravel\Lumen\Routing\Router $router */
 
 $router->get('/movies/about/{media_id}', 'MovieController@show');
-$router->get('/tv/about/{media_id}', 'MovieController@show');
+$router->get('/tv/about/{media_id}', 'TvShowController@show');
 $router->get('/movies/popular', 'MovieController@popular');
 $router->get('/tv/popular', 'TvShowController@popular');
 $router->get('/movies/upcoming', 'MovieController@upcoming');
