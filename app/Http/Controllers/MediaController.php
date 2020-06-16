@@ -11,6 +11,14 @@ class MediaController extends Controller
 
     protected $mediaType;
 
+    public function show($media_id)
+    {
+        return Http::withToken($this->apiKey())
+            ->get($this->apiUrl(
+                "{$this->mediaType}/${media_id}?append_to_response=videos,images,credits,reviews,similar")
+            )->json();
+    }
+
     public function popular()
     {
         return Http::withToken($this->apiKey())
