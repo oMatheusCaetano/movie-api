@@ -18,8 +18,9 @@ class PersonController extends Controller
 
     public function popular()
     {
+        $page = empty($_GET['page']) ? 1 : $_GET['page'];
         return Http::withToken($this->apiKey())
-            ->get($this->apiUrl("person/popular"))
+            ->get($this->apiUrl("person/popular?page=${page}"))
             ->json();
     }
 }
