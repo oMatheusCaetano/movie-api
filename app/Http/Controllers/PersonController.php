@@ -12,7 +12,7 @@ class PersonController extends Controller
     public function show($person_id)
     {
         return Http::withToken($this->apiKey())
-            ->get($this->apiUrl("person/${person_id}"))
+            ->get($this->apiUrl("person/${person_id}?append_to_response=credits"))
             ->json();
     }
 
