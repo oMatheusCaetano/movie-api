@@ -47,10 +47,17 @@ abstract class MediaController extends Controller
             ->json()['results'];
     }
 
-    public function search($value)
+    public function searchMulti($value)
     {
         return Http::withToken($this->apiKey())
             ->get($this->apiUrl("/search/multi?query={$value}"))
+            ->json()['results'];
+    }
+
+    public function search($value)
+    {
+        return Http::withToken($this->apiKey())
+            ->get($this->apiUrl("/search/{$this->mediaType}?query={$value}"))
             ->json()['results'];
     }
 }

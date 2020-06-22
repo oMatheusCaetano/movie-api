@@ -12,4 +12,7 @@ $router->get('/movies/trending/{time_window}', 'MovieController@trending');
 $router->get('/tv/trending/{time_window}', 'TvShowController@trending');
 $router->get('/person/popular', 'PersonController@popular');
 $router->get('/person/{person_id}', 'PersonController@show');
+$router->get('search/multi/{value}', 'MovieController@searchMulti');
 $router->get('search/movies/{value}', 'MovieController@search');
+$router->get('search/tv/{value}', 'TvShowController@search');
+$router->get('search/person/{value}', 'PersonController@search');

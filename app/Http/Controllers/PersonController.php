@@ -12,7 +12,7 @@ class PersonController extends Controller
     public function show($person_id)
     {
         return Http::withToken($this->apiKey())
-            ->get($this->apiUrl("person/${person_id}?append_to_response=credits"))
+            ->get($this->apiUrl("person/${person_id}?append_to_response=images,credits"))
             ->json();
     }
 
@@ -22,5 +22,12 @@ class PersonController extends Controller
         return Http::withToken($this->apiKey())
             ->get($this->apiUrl("person/popular?page=${page}"))
             ->json();
+    }
+
+    public function search($value)
+    {
+        return Http::withToken($this->apiKey())
+            ->get($this->apiUrl("/search/person?query={$value}"))
+            ->json()['results'];
     }
 }
