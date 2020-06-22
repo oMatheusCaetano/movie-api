@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Traits\ApiGetter;
 use Illuminate\Support\Facades\Http;
 
-class MediaController extends Controller
+abstract class MediaController extends Controller
 {
     use ApiGetter;
 
@@ -50,7 +50,7 @@ class MediaController extends Controller
     public function search($value)
     {
         return Http::withToken($this->apiKey())
-            ->get($this->apiUrl("/search/movie?query={$value}"))
+            ->get($this->apiUrl("/search/multi?query={$value}"))
             ->json()['results'];
     }
 }
